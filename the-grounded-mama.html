@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Grounded Mama: Science-Backed Guides for Exhausted Moms</title>
+<meta name="description" content="Science-backed guides for exhausted moms — sleep, identity, toddlers, screens, big feelings & postpartum recovery. From a certified postpartum & child-development pro and mum of three." />
+
+<!-- ============================================================
+     GOOGLE FONTS: Playfair Display (headings) + Inter (body)
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM / TOKENS
+   ============================================================ */
+:root{
+  /* Brand palette */
+  --blush:#F2D4D0;
+  --sage:#C8D8C0;
+  --cream:#FAF6F0;
+  --charcoal:#3D3532;
+  --gold:#D4B896;
+  --white:#ffffff;
+
+  /* Guide accent colours */
+  --c-sleep:#C9837A;       /* dusty rose   */
+  --c-identity:#5A7A5A;    /* deep sage    */
+  --c-toddler:#C67B5C;     /* terracotta   */
+  --c-screens:#4A7A7A;     /* teal         */
+  --c-eq:#7A6A90;          /* lavender     */
+  --c-postpartum:#9A6B4B;  /* warm brown   */
+
+  --radius:12px;
+  --shadow-sm:0 2px 10px rgba(61,53,50,.06);
+  --shadow:0 10px 30px rgba(61,53,50,.10);
+  --shadow-lg:0 24px 60px rgba(61,53,50,.16);
+  --maxw:1140px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--charcoal);
+  background:var(--cream);
+  line-height:1.65;
+  font-size:17px;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.18;color:var(--charcoal);margin:0 0 .5em;}
+h1{font-size:clamp(2.1rem,5.4vw,3.6rem);}
+h2{font-size:clamp(1.7rem,4vw,2.6rem);}
+h3{font-size:clamp(1.3rem,2.6vw,1.7rem);}
+p{margin:0 0 1em;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+.eyebrow{font-family:'Inter';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;opacity:.7;margin-bottom:1rem;}
+.center{text-align:center;}
+.muted{color:#7d716c;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:'Inter';font-weight:600;font-size:1rem;
+  padding:.95rem 1.8rem;border-radius:999px;border:none;cursor:pointer;
+  text-decoration:none;transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease);
+  line-height:1.2;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.btn:active{transform:translateY(0);}
+.btn-primary{background:var(--c-sleep);color:#fff;}
+.btn-ghost{background:rgba(255,255,255,.7);color:var(--charcoal);border:1px solid rgba(61,53,50,.15);}
+.btn-sage{background:var(--c-identity);color:#fff;}
+.btn-block{width:100%;}
+.btn-lg{padding:1.1rem 2.2rem;font-size:1.08rem;}
+
+/* ============================================================
+   SCROLL FADE-IN ANIMATION
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(900px 500px at 75% -10%, rgba(242,212,208,.85), transparent 60%),
+    linear-gradient(160deg, #FBE7E2 0%, var(--cream) 48%, #F3EDE2 100%);
+  padding:clamp(3.4rem,9vw,7rem) 0 clamp(3rem,7vw,5.5rem);
+  text-align:center;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:-10%;bottom:-30%;width:55%;height:80%;
+  background:radial-gradient(circle, rgba(200,216,192,.5), transparent 65%);
+  filter:blur(10px);pointer-events:none;
+}
+.hero .brand{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:1.15rem;letter-spacing:.04em;color:var(--c-sleep);margin-bottom:1.6rem;position:relative;z-index:2;}
+.hero h1{position:relative;z-index:2;max-width:14ch;margin-inline:auto;}
+.hero .sub{position:relative;z-index:2;max-width:60ch;margin:1.2rem auto 2.2rem;font-size:clamp(1.02rem,2vw,1.22rem);color:#6c605b;}
+.hero-cta{position:relative;z-index:2;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.hero-trust{position:relative;z-index:2;margin-top:2.2rem;font-size:.9rem;color:#857a74;display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;}
+.hero-trust span{display:inline-flex;align-items:center;gap:.4rem;}
+
+/* ============================================================
+   GUIDE SELECTOR / PILL NAV
+   ============================================================ */
+.selector{position:sticky;top:0;z-index:40;background:rgba(250,246,240,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(61,53,50,.08);padding:.7rem 0;}
+.pills{display:flex;gap:.55rem;overflow-x:auto;scrollbar-width:none;padding:.15rem 22px;max-width:var(--maxw);margin:0 auto;-webkit-overflow-scrolling:touch;}
+.pills::-webkit-scrollbar{display:none;}
+.pill{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:.45rem;
+  padding:.6rem 1.1rem;border-radius:999px;border:1px solid rgba(61,53,50,.14);
+  background:#fff;color:var(--charcoal);font-weight:600;font-size:.92rem;cursor:pointer;white-space:nowrap;
+  transition:all .2s var(--ease);
+}
+.pill:hover{border-color:currentColor;}
+.pill.active{color:#fff;border-color:transparent;}
+.pill .emoji{font-size:1.05rem;}
+
+/* ============================================================
+   GUIDE SECTIONS
+   ============================================================ */
+.guide{padding:clamp(3rem,7vw,5.5rem) 0;scroll-margin-top:64px;border-bottom:1px solid rgba(61,53,50,.07);}
+.guide:nth-of-type(even){background:#fff;}
+.guide-head{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap;}
+.guide-badge{
+  display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.4rem .9rem;border-radius:999px;color:#fff;
+}
+.guide-price-tag{font-family:'Playfair Display';font-size:1.5rem;font-weight:700;margin-left:auto;}
+
+/* Story block */
+.story{
+  border-left:4px solid;padding:1.2rem 0 1.2rem 1.6rem;margin:1.2rem 0 2.4rem;
+  font-family:'Playfair Display';font-style:italic;font-size:clamp(1.1rem,2.3vw,1.42rem);line-height:1.5;color:#4b423e;max-width:62ch;
+}
+
+/* Image row */
+.img-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.4rem;}
+.img-tile{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3;background:#eadfd8;}
+.img-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.img-tile:hover img{transform:scale(1.06);}
+.img-tile::after{content:"";position:absolute;inset:0;mix-blend-mode:soft-light;opacity:.55;pointer-events:none;}
+
+/* Two-column inside/buy layout */
+.guide-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:2.2rem;align-items:start;}
+.inside-card,.buy-card{background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.8rem;}
+.guide:nth-of-type(even) .inside-card,.guide:nth-of-type(even) .buy-card{background:var(--cream);}
+.inside-card h3{margin-bottom:.2rem;}
+.tagline{font-style:italic;color:#6c605b;margin-bottom:1.2rem;}
+.inside-list{list-style:none;margin:0 0 1rem;padding:0;}
+.inside-list li{position:relative;padding:.45rem 0 .45rem 1.9rem;border-bottom:1px dashed rgba(61,53,50,.12);font-size:.97rem;}
+.inside-list li:last-child{border-bottom:none;}
+.inside-list li::before{content:"✓";position:absolute;left:0;top:.45rem;font-weight:700;width:1.3rem;height:1.3rem;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-size:.72rem;}
+.meta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;}
+.chip{font-size:.78rem;font-weight:600;padding:.35rem .8rem;border-radius:999px;background:rgba(61,53,50,.06);}
+.chip.print{color:#fff;}
+
+/* Buy card */
+.buy-card{position:sticky;top:74px;text-align:center;}
+.buy-price{font-family:'Playfair Display';font-size:2.6rem;font-weight:700;line-height:1;}
+.buy-sub{font-size:.86rem;color:#7d716c;margin:.6rem 0 1.2rem;}
+.pay-placeholder{margin-top:.8rem;font-size:.78rem;color:#9a8f89;border:1px dashed rgba(61,53,50,.2);border-radius:8px;padding:.6rem;}
+.guarantee{font-size:.82rem;color:#7d716c;margin-top:1rem;display:flex;align-items:center;gap:.4rem;justify-content:center;}
+
+/* Testimonials */
+.social{margin-top:2.4rem;}
+.social-head{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:1rem;}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.post{background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow-sm);}
+.guide:nth-of-type(even) .post{background:var(--cream);}
+.post-top{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;}
+.avatar{width:34px;height:34px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;}
+.post-user{font-weight:600;font-size:.88rem;}
+.stars{color:#E8B23A;font-size:.85rem;letter-spacing:.05em;}
+.post-text{font-size:.92rem;color:#4b423e;margin:0;}
+
+/* ============================================================
+   BUNDLE
+   ============================================================ */
+.bundle{background:linear-gradient(160deg,#FBF4E9,#FAF6F0);padding:clamp(3.4rem,8vw,6rem) 0;}
+.bundle-card{
+  background:var(--cream);border:2px solid var(--gold);border-radius:20px;
+  box-shadow:var(--shadow-lg);padding:clamp(2rem,5vw,3.4rem);max-width:980px;margin:0 auto;text-align:center;position:relative;
+}
+.bundle-card::before{content:"BEST VALUE";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:.4rem 1.1rem;border-radius:999px;}
+.bundle-covers{display:grid;grid-template-columns:repeat(6,1fr);gap:.8rem;margin:2rem 0;}
+.cover{aspect-ratio:3/4;border-radius:10px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:flex-end;padding:.7rem;color:#fff;font-weight:600;font-size:.74rem;text-align:left;position:relative;overflow:hidden;}
+.cover .c-emoji{font-size:1.5rem;position:absolute;top:.5rem;left:.55rem;}
+.bundle-includes{list-style:none;padding:0;margin:1.5rem auto;max-width:560px;text-align:left;columns:2;column-gap:2rem;}
+.bundle-includes li{padding:.3rem 0 .3rem 1.6rem;position:relative;font-size:.94rem;break-inside:avoid;}
+.bundle-includes li::before{content:"✦";position:absolute;left:0;color:var(--gold);}
+.price-stack{display:flex;align-items:baseline;gap:.8rem;justify-content:center;margin:1.2rem 0;}
+.price-old{font-size:1.4rem;color:#a89c95;text-decoration:line-through;}
+.price-new{font-family:'Playfair Display';font-size:3rem;font-weight:700;color:var(--c-identity);}
+
+/* ============================================================
+   LEAD MAGNETS
+   ============================================================ */
+.leads{padding:clamp(3rem,7vw,5rem) 0;background:#fff;}
+.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem;}
+.lead-card{border:1px solid rgba(61,53,50,.12);border-radius:var(--radius);padding:1.6rem;background:var(--cream);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;}
+.lead-icon{font-size:2rem;margin-bottom:.5rem;}
+.lead-card h4{font-family:'Playfair Display';font-size:1.2rem;margin:0 0 .3rem;}
+.lead-card p{font-size:.9rem;color:#6c605b;flex:1;}
+.lead-form{display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem;}
+input[type=email]{width:100%;padding:.8rem 1rem;border-radius:10px;border:1px solid rgba(61,53,50,.2);font-family:inherit;font-size:.95rem;background:#fff;}
+input[type=email]:focus{outline:none;border-color:var(--c-sleep);box-shadow:0 0 0 3px rgba(201,131,122,.18);}
+.lead-thanks{display:none;font-weight:600;color:var(--c-identity);padding:.6rem 0;}
+.lead-thanks.show{display:block;}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{padding:clamp(3rem,7vw,5rem) 0;background:linear-gradient(160deg,#F6EDE9,var(--cream));}
+.about-card{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;max-width:900px;margin:0 auto;background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:20px;padding:2.4rem;box-shadow:var(--shadow);}
+.avatar-lg{width:140px;height:140px;border-radius:50%;background:linear-gradient(160deg,var(--blush),var(--sage));display:flex;align-items:center;justify-content:center;font-size:3rem;flex:0 0 auto;box-shadow:var(--shadow);overflow:hidden;}
+.avatar-lg img{width:100%;height:100%;object-fit:cover;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--charcoal);color:#e9e1da;padding:3rem 0 2rem;text-align:center;}
+footer .brand{font-family:'Playfair Display';font-style:italic;font-size:1.4rem;margin-bottom:.8rem;}
+.foot-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;font-size:.92rem;}
+.foot-links a{color:#e9e1da;text-decoration:none;opacity:.85;}
+.foot-links a:hover{opacity:1;text-decoration:underline;}
+.foot-fine{font-size:.82rem;opacity:.6;margin-top:1rem;}
+
+/* ============================================================
+   MODALS
+   ============================================================ */
+.modal-overlay{position:fixed;inset:0;background:rgba(40,34,32,.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal{background:var(--cream);border-radius:18px;max-width:480px;width:100%;padding:2.2rem;box-shadow:var(--shadow-lg);position:relative;animation:pop .3s var(--ease);max-height:90vh;overflow:auto;}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.97);}to{opacity:1;transform:none;}}
+.modal-close{position:absolute;top:1rem;right:1.1rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#9a8f89;line-height:1;}
+.modal h3{margin-top:0;}
+.upsell-extra{background:#fff;border:1px solid rgba(61,53,50,.12);border-radius:12px;padding:1rem 1.2rem;margin:1rem 0;}
+.upsell-extra ul{margin:.4rem 0 0;padding-left:1.2rem;font-size:.9rem;}
+.modal-actions{display:flex;flex-direction:column;gap:.7rem;margin-top:1.2rem;}
+
+/* ============================================================
+   STICKY MOBILE CTA
+   ============================================================ */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;padding:.7rem 16px calc(.7rem + env(safe-area-inset-bottom));background:rgba(250,246,240,.95);backdrop-filter:blur(10px);border-top:1px solid rgba(61,53,50,.1);}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:880px){
+  .guide-grid{grid-template-columns:1fr;}
+  .buy-card{position:static;}
+  .bundle-covers{grid-template-columns:repeat(3,1fr);}
+  .about-card{grid-template-columns:1fr;text-align:center;}
+  .avatar-lg{margin:0 auto;}
+}
+@media (max-width:720px){
+  .img-row{grid-template-columns:1fr 1fr;}
+  .posts{grid-template-columns:1fr;}
+  .lead-grid{grid-template-columns:1fr;}
+  .bundle-includes{columns:1;}
+  .sticky-cta{display:block;}
+  body{padding-bottom:70px;}
+  .selector{top:0;}
+}
+@media (max-width:480px){
+  .img-row{grid-template-columns:1fr;}
+  .bundle-covers{grid-template-columns:repeat(2,1fr);}
+  .hero-cta .btn{width:100%;}
+}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my newborn only sleep when held?", "acceptedAnswer": {"@type": "Answer", "text": "It's biology, not a bad habit. Newborns are neurologically immature and can't yet regulate their own temperature, heart rate, or stress hormones — being held does it for them. Contact napping is developmentally normal. The goal isn't to stop holding your baby, but to gently teach their nervous system it's safe to be put down."}}, {"@type": "Question", "name": "What is matrescence?", "acceptedAnswer": {"@type": "Answer", "text": "Matrescence is the developmental transition of becoming a mother — a profound neurological, hormonal, and identity shift comparable in scale to adolescence. Research shows the maternal brain physically rewires and these changes persist for at least two years. Feeling like you've lost yourself isn't failure; it's a recognised, normal part of this transition."}}, {"@type": "Question", "name": "How do I respond to a toddler meltdown without yelling?", "acceptedAnswer": {"@type": "Answer", "text": "During a meltdown a toddler's thinking brain goes offline, so reasoning doesn't work. Use a four-part script: acknowledge the feeling, hold the boundary calmly, offer a small choice, then follow through warmly. Connect before you correct — a child who feels understood can settle; a child who feels judged escalates."}}, {"@type": "Question", "name": "Does a screen-time detox have to be cold turkey?", "acceptedAnswer": {"@type": "Answer", "text": "No — and cold turkey usually backfires. Abruptly removing a dopamine trigger causes a real withdrawal-style meltdown. A gradual, four-week reduction lets the brain readjust, builds your child's buy-in, and gives you time to make real life more interesting. Consistency, not strictness, is what makes it stick."}}, {"@type": "Question", "name": "How do I help a child with big emotions?", "acceptedAnswer": {"@type": "Answer", "text": "Name the feeling before fixing the behaviour — affect labelling measurably lowers a feeling's intensity in the brain. Give them precise emotion words, build a calm-down corner (a self-soothing space, not a punishment), and model regulating your own feelings. Big feelings aren't a defect; the missing skill is regulation, and it's teachable."}}, {"@type": "Question", "name": "How do I know if I have postpartum depression or baby blues?", "acceptedAnswer": {"@type": "Answer", "text": "Baby blues affect up to 80% of mothers, start 2-3 days after birth, and lift within two weeks. Postpartum depression affects about 1 in 5, can begin any time in the first year, and doesn't resolve on its own — but it responds well to treatment. Persistent sadness, numbness, or rage beyond two weeks warrants a check-in."}}]}
+</script>
+</head>
+<body>
+
+<!-- ============================================================
+     1. HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">The Grounded Mama</div>
+    <h1>You're Not Failing. You Just Need the Right Tools.</h1>
+    <p class="sub">Science-backed guides from a certified professional who has been exactly where you are. For sleep, identity, toddlers, screens, big feelings, and getting through the dark.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary btn-lg" onclick="document.getElementById('guides').scrollIntoView({behavior:'smooth'})">Find My Guide</button>
+      <button class="btn btn-ghost btn-lg" onclick="openEmailModal()">Get a Free Guide First</button>
+    </div>
+    <div class="hero-trust">
+      <span>✦ Certified postpartum &amp; child development pro</span>
+      <span>✦ Mother of three</span>
+      <span>✦ 7-day money-back guarantee</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. GUIDE SELECTOR / PILL NAV
+     ============================================================ -->
+<nav class="selector" id="guides">
+  <div class="pills" id="pills">
+    <button class="pill" data-target="sleep"      style="--ac:var(--c-sleep)"><span class="emoji">🌙</span> Sleep</button>
+    <button class="pill" data-target="identity"   style="--ac:var(--c-identity)"><span class="emoji">🪞</span> Identity</button>
+    <button class="pill" data-target="toddler"    style="--ac:var(--c-toddler)"><span class="emoji">🧸</span> Toddler</button>
+    <button class="pill" data-target="screens"    style="--ac:var(--c-screens)"><span class="emoji">📵</span> Screens</button>
+    <button class="pill" data-target="eq"         style="--ac:var(--c-eq)"><span class="emoji">🌈</span> Big Feelings</button>
+    <button class="pill" data-target="postpartum" style="--ac:var(--c-postpartum)"><span class="emoji">💚</span> Postpartum</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================================================
+     GUIDE 1 — SLEEP
+     ============================================================ -->
+<section class="guide" id="sleep" style="--ac:var(--c-sleep)">
+  <div class="wrap">
+    <div class="guide-head reveal">
+      <span class="guide-badge" style="background:var(--ac)"><span>🌙</span> Sleep Reset</span>
+      <span class="guide-price-tag" style="color:var(--ac)">$27</span>
+    </div>
+
+    <!-- A. STORY BLOCK -->
+    <p class="story reveal" style="border-color:var(--ac)">It's 3am. Your baby is asleep in your arms and you haven't moved in two hours because the last time you tried to put them down they woke up instantly. You're exhausted in a way that has no name. And somewhere in the dark you're wondering if you've done something wrong — if you've created a habit you'll never break.</p>
+
+    <!-- B. REAL IMAGES — curated, verified Unsplash photo URLs (images.unsplash.com).
+         To swap any image, replace its src with another images.unsplash.com/photo-XXXX
+         URL, or wire the official Unsplash API for dynamic, on-brand photography. -->
+    <div class="img-row reveal">
+      <div class="img-tile" style="--ac:var(--c-sleep)"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=700&h=525&fit=crop&q=75" alt="Sleeping newborn's feet wrapped in a soft blanket" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-sleep)"><img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?w=700&h=525&fit=crop&q=75" alt="Mother cradling her sleeping newborn" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-sleep)"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=700&h=525&fit=crop&q=75" alt="Parents holding their newborn by a window" loading="lazy"></div>
+    </div>
+
+    <!-- C + E. WHAT'S INSIDE + BUY -->
+    <div class="guide-grid">
+      <div class="inside-card reveal">
+        <h3>"My Newborn Won't Sleep Unless Held" — The 7-Day Gentle Sleep Reset</h3>
+        <p class="tagline">Finally transfer your sleeping baby without waking them. No cry-it-out. No rigid schedules.</p>
+        <ul class="inside-list" style="--ac:var(--c-sleep)">
+          <li>Understand why your baby sleeps better in your arms — it's biology, not a bad habit</li>
+          <li>Master the exact 3-step gentle transfer technique used by thousands of mamas</li>
+          <li>Fix the 5 environmental factors that make or break every sleep attempt</li>
+          <li>Follow a day-by-day 7-day plan designed for real life and real exhaustion</li>
+          <li>Resettle between sleep cycles without ever picking baby up</li>
+          <li>Get a whole chapter just for you — the sleep-deprived mama</li>
+          <li>Answer the 4 questions every exhausted parent asks (full FAQ)</li>
+        </ul>
+        <div class="meta-row">
+          <span class="chip">8 chapters · 40+ pages</span>
+          <span class="chip print" style="background:var(--c-sleep)">⬇ Includes printable: 7-day sleep tracking chart</span>
+        </div>
+      </div>
+
+      <div class="buy-card reveal">
+        <div class="buy-price" style="color:var(--c-sleep)">$27</div>
+        <p class="buy-sub">Instant PDF download · Yours to keep forever · 7-day money-back guarantee</p>
+        <button class="btn btn-block btn-lg" style="background:var(--c-sleep);color:#fff"
+          onclick="startBuy('Sleep Reset','sleep',27)">Get the Sleep Reset — $27</button>
+        <p class="guarantee">🛡 Love it or your money back, no questions for 7 days</p>
+      </div>
+    </div>
+
+    <!-- D. SOCIAL PROOF -->
+    <div class="social reveal">
+      <div class="social-head" style="color:var(--c-sleep)">What mamas are saying</div>
+      <div class="posts">
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-sleep)">T</div><div><div class="post-user">@tiredmama_of2</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">Night 6 I transferred her and she stayed down for 4 hours. I cried. The wait-longer tip alone changed everything.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-sleep)">M</div><div><div class="post-user">@maya.and.theo</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">I thought I'd ruined him forever with the holding. Turns out it was biology not a habit. Reading that fixed something in MY head too.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-sleep)">J</div><div><div class="post-user">@just_jess_nz</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">The crib was freezing and I never realised. Fixed two of the 5 factors and the very next nap she went down on the first try??</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUIDE 2 — IDENTITY
+     ============================================================ -->
+<section class="guide" id="identity" style="--ac:var(--c-identity)">
+  <div class="wrap">
+    <div class="guide-head reveal">
+      <span class="guide-badge" style="background:var(--ac)"><span>🪞</span> Identity Reset</span>
+      <span class="guide-price-tag" style="color:var(--ac)">$27</span>
+    </div>
+
+    <p class="story reveal" style="border-color:var(--ac)">Somewhere between the hospital discharge papers and week six at home, you looked in the mirror and didn't quite recognise the person looking back. Not because you look different. Because something behind your eyes has shifted. You love your baby. And you miss yourself. And nobody told you both of those things could be true at the same time.</p>
+
+    <div class="img-row reveal">
+      <div class="img-tile" style="--ac:var(--c-identity)"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=700&h=525&fit=crop&q=75" alt="Woman in a quiet, reflective moment" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-identity)"><img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=700&h=525&fit=crop&q=75" alt="Mother lifting her baby playfully" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-identity)"><img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?w=700&h=525&fit=crop&q=75" alt="Two people holding hands in support" loading="lazy"></div>
+    </div>
+
+    <div class="guide-grid">
+      <div class="inside-card reveal">
+        <h3>"I Don't Recognise Myself After Baby" — The 30-Day Postpartum Identity Reset</h3>
+        <p class="tagline">Find your way back to yourself — one day at a time, ten minutes a day.</p>
+        <ul class="inside-list" style="--ac:var(--c-identity)">
+          <li>Finally name what's happening: the science of matrescence (yes, it has a name)</li>
+          <li>Use a daily 7-point self-checklist that takes under 2 minutes every morning</li>
+          <li>Understand why postpartum rage, grief, and loneliness are normal — not failure</li>
+          <li>Move through four weekly themes that build toward identity integration</li>
+          <li>Reconnect with your body without a single line of toxic positivity</li>
+          <li>Reclaim who you are <em>alongside</em> motherhood with practical, doable tools</li>
+          <li>Know exactly when to seek professional support — and how to ask for it</li>
+        </ul>
+        <div class="meta-row">
+          <span class="chip">4 weekly modules · 30-day plan</span>
+          <span class="chip print" style="background:var(--c-identity)">⬇ Includes printable: 30-day daily check-in tracker</span>
+        </div>
+      </div>
+
+      <div class="buy-card reveal">
+        <div class="buy-price" style="color:var(--c-identity)">$27</div>
+        <p class="buy-sub">Instant PDF download · Yours to keep forever · 7-day money-back guarantee</p>
+        <button class="btn btn-block btn-lg" style="background:var(--c-identity);color:#fff"
+          onclick="startBuy('Identity Reset','identity',27)">Get the Identity Reset — $27</button>
+        <p class="guarantee">🛡 Love it or your money back, no questions for 7 days</p>
+      </div>
+    </div>
+
+    <div class="social reveal">
+      <div class="social-head" style="color:var(--c-identity)">What mamas are saying</div>
+      <div class="posts">
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-identity)">K</div><div><div class="post-user">@firsttimemom_kels</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">I didn't know matrescence was a word. I thought I was losing my mind. Week 2 made me ugly cry in the best way.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-identity)">A</div><div><div class="post-user">@anna.becoming</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">The 2-minute morning checklist is the only thing I've actually stuck to since the baby. It's so small it doesn't feel like one more job.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-identity)">R</div><div><div class="post-user">@rosa_mumof1</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">Reading that the rage was normal and not me being a monster. I exhaled for the first time in months honestly.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUIDE 3 — TODDLER
+     ============================================================ -->
+<section class="guide" id="toddler" style="--ac:var(--c-toddler)">
+  <div class="wrap">
+    <div class="guide-head reveal">
+      <span class="guide-badge" style="background:var(--ac)"><span>🧸</span> Toddler Discipline</span>
+      <span class="guide-price-tag" style="color:var(--ac)">$47</span>
+    </div>
+
+    <p class="story reveal" style="border-color:var(--ac)">It's 8am and you've already repeated yourself eleven times. The meltdown over the wrong colour cup is in full swing and you're standing there wondering why none of the things you're trying are working — and why you feel like you're losing a battle with a two-year-old every single day.</p>
+
+    <div class="img-row reveal">
+      <div class="img-tile" style="--ac:var(--c-toddler)"><img src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=700&h=525&fit=crop&q=75" alt="Three young children laughing together" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-toddler)"><img src="https://images.unsplash.com/photo-1543342384-1f1350e27861?w=700&h=525&fit=crop&q=75" alt="Toddler covered in paint, full of big feelings" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-toddler)"><img src="https://images.unsplash.com/photo-1597413545419-4013431dbfec?w=700&h=525&fit=crop&q=75" alt="Two siblings hugging" loading="lazy"></div>
+    </div>
+
+    <div class="guide-grid">
+      <div class="inside-card reveal">
+        <h3>"My Toddler Won't Listen" — Gentle Boundary Scripts That Stop Daily Meltdowns</h3>
+        <p class="tagline">25 done-for-you scripts for the moments your brain goes completely blank.</p>
+        <ul class="inside-list" style="--ac:var(--c-toddler)">
+          <li>Understand why your toddler melts down — neuroscience that makes it stop feeling personal</li>
+          <li>Learn the 4-part Gentle Boundary Framework behind every single script</li>
+          <li>Grab 5 emergency scripts for public meltdowns — grocery store, playground, restaurant</li>
+          <li>Use 20 home scripts for bedtime, mealtimes, hitting, screens, defiance, and more</li>
+          <li>Know exactly what to do AFTER the meltdown — where the learning actually happens</li>
+          <li>Prevent meltdowns before they start with 5 proactive strategies</li>
+          <li>Repair after YOU lose your temper (the conversation that rebuilds trust)</li>
+        </ul>
+        <div class="meta-row">
+          <span class="chip">25 scripts · 50+ pages</span>
+          <span class="chip print" style="background:var(--c-toddler)">⬇ Includes printable: Fridge Script Cheat Sheet</span>
+        </div>
+      </div>
+
+      <div class="buy-card reveal">
+        <div class="buy-price" style="color:var(--c-toddler)">$47</div>
+        <p class="buy-sub">Instant PDF download · Yours to keep forever · 7-day money-back guarantee</p>
+        <button class="btn btn-block btn-lg" style="background:var(--c-toddler);color:#fff"
+          onclick="startBuy('Toddler Discipline','toddler',47)">Get the Toddler Discipline Guide — $47</button>
+        <p class="guarantee">🛡 Love it or your money back, no questions for 7 days</p>
+      </div>
+    </div>
+
+    <div class="social reveal">
+      <div class="social-head" style="color:var(--c-toddler)">What mamas are saying</div>
+      <div class="posts">
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-toddler)">B</div><div><div class="post-user">@boymom_exhausted</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">I printed the fridge sheet the same day. My husband now asks "what does the fridge say" when things escalate 😂</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-toddler)">D</div><div><div class="post-user">@dani_twins_chaos</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">The restaurant script saved us at my sister's wedding. Word for word. I didn't have to think and that was the whole point.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-toddler)">L</div><div><div class="post-user">@leah.gentleish</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">Honestly the repair chapter was for ME. I yell sometimes. Knowing how to fix it after instead of drowning in guilt = everything.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUIDE 4 — SCREEN DETOX
+     ============================================================ -->
+<section class="guide" id="screens" style="--ac:var(--c-screens)">
+  <div class="wrap">
+    <div class="guide-head reveal">
+      <span class="guide-badge" style="background:var(--ac)"><span>📵</span> Screen Detox</span>
+      <span class="guide-price-tag" style="color:var(--ac)">$27</span>
+    </div>
+
+    <p class="story reveal" style="border-color:var(--ac)">You picked up the tablet to buy yourself twenty minutes of peace. And now it's been three hours and the transition off screens is going to be a full-scale meltdown and you already know it. You're not a bad parent. You're a tired one without better tools.</p>
+
+    <div class="img-row reveal">
+      <div class="img-tile" style="--ac:var(--c-screens)"><img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=700&h=525&fit=crop&q=75" alt="Mother and two children looking at a tablet" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-screens)"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=700&h=525&fit=crop&q=75" alt="Young child playing outdoors by the water" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-screens)"><img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=700&h=525&fit=crop&q=75" alt="Parent and child reading together, screen-free" loading="lazy"></div>
+    </div>
+
+    <div class="guide-grid">
+      <div class="inside-card reveal">
+        <h3>"My Child Is Addicted to Screens" — The No-Fight Digital Detox Plan</h3>
+        <p class="tagline">Reclaim your child's attention without cold turkey, guilt, or daily battles.</p>
+        <ul class="inside-list" style="--ac:var(--c-screens)">
+          <li>Understand the real reason screen transitions cause meltdowns — neuroscience, not defiance</li>
+          <li>Run the 5-pillar No-Fight Framework that ends the daily screen battle</li>
+          <li>Use the Boredom Menu — 20 screen-free activities your child will actually choose</li>
+          <li>Follow a 4-week gradual detox plan the whole family can do together</li>
+          <li>Set screen-time rules that are realistic, sustainable, and actually stick</li>
+          <li>Discover why co-viewing beats screen-free rules every single time</li>
+          <li>Involve your child so they follow the rules <em>they</em> helped create</li>
+        </ul>
+        <div class="meta-row">
+          <span class="chip">5 pillars · 4-week plan</span>
+          <span class="chip print" style="background:var(--c-screens)">⬇ Includes printable: Family Screen Time Agreement</span>
+        </div>
+      </div>
+
+      <div class="buy-card reveal">
+        <div class="buy-price" style="color:var(--c-screens)">$27</div>
+        <p class="buy-sub">Instant PDF download · Yours to keep forever · 7-day money-back guarantee</p>
+        <button class="btn btn-block btn-lg" style="background:var(--c-screens);color:#fff"
+          onclick="startBuy('Screen Detox','screens',27)">Get the Screen Detox Plan — $27</button>
+        <p class="guarantee">🛡 Love it or your money back, no questions for 7 days</p>
+      </div>
+    </div>
+
+    <div class="social reveal">
+      <div class="social-head" style="color:var(--c-screens)">What mamas are saying</div>
+      <div class="posts">
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-screens)">P</div><div><div class="post-user">@priya.threekids</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">The Boredom Menu lives on our fridge now. He picks the activity so there's no fight about it. Genuinely did not expect that to work.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-screens)">S</div><div><div class="post-user">@sam_dadlife</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">We did the gradual 4 weeks instead of cold turkey like I'd failed at twice before. Week 3 he turned the iPad off himself. I sat there stunned.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-screens)">N</div><div><div class="post-user">@nadia.mumlife</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">Letting her help write the agreement was the whole trick. She "enforces" it on ME now lol.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUIDE 5 — EQ / BIG FEELINGS
+     ============================================================ -->
+<section class="guide" id="eq" style="--ac:var(--c-eq)">
+  <div class="wrap">
+    <div class="guide-head reveal">
+      <span class="guide-badge" style="background:var(--ac)"><span>🌈</span> EQ Toolkit</span>
+      <span class="guide-price-tag" style="color:var(--ac)">$47</span>
+    </div>
+
+    <p class="story reveal" style="border-color:var(--ac)">Your child feels everything at full volume. The tears, the rage, the joy — all of it enormous, all of it right on the surface. And you love them for it. And you're exhausted by it. And you've been told they're 'too sensitive' enough times that you've started to wonder if something is wrong.</p>
+
+    <div class="img-row reveal">
+      <div class="img-tile" style="--ac:var(--c-eq)"><img src="https://images.unsplash.com/photo-1476234251651-f353703a034d?w=701&h=525&fit=crop&crop=faces&q=75" alt="Two sisters sharing a tender moment at golden hour" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-eq)"><img src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=701&h=525&fit=crop&q=75" alt="Children expressing big, joyful emotions" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-eq)"><img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?w=701&h=525&fit=crop&q=75" alt="Mother comforting her child close to her chest" loading="lazy"></div>
+    </div>
+
+    <div class="guide-grid">
+      <div class="inside-card reveal">
+        <h3>"My Child Has Big Emotional Outbursts" — The Complete Emotional Intelligence Toolkit</h3>
+        <p class="tagline">Raise a child who knows what to do with what they feel.</p>
+        <ul class="inside-list" style="--ac:var(--c-eq)">
+          <li>Learn why emotional intelligence predicts life outcomes more than IQ</li>
+          <li>Know what's developmentally normal at every age from 2 to 10</li>
+          <li>Build a Calm-Down Corner step-by-step — what to include and how to introduce it</li>
+          <li>Decode 12 big emotions with the Feelings Dictionary and a script for each</li>
+          <li>Have EQ conversations for every age — words that open the right doors</li>
+          <li>Weave in daily family practices that build emotional intelligence naturally</li>
+          <li>Tell the difference when big feelings need professional support</li>
+        </ul>
+        <div class="meta-row">
+          <span class="chip">12 emotions decoded · ages 2–10</span>
+          <span class="chip print" style="background:var(--c-eq)">⬇ Includes printable: Feelings Wheel + 30-day EQ tracker</span>
+        </div>
+      </div>
+
+      <div class="buy-card reveal">
+        <div class="buy-price" style="color:var(--c-eq)">$47</div>
+        <p class="buy-sub">Instant PDF download · Yours to keep forever · 7-day money-back guarantee</p>
+        <button class="btn btn-block btn-lg" style="background:var(--c-eq);color:#fff"
+          onclick="startBuy('EQ Toolkit','eq',47)">Get the EQ Toolkit — $47</button>
+        <p class="guarantee">🛡 Love it or your money back, no questions for 7 days</p>
+      </div>
+    </div>
+
+    <div class="social reveal">
+      <div class="social-head" style="color:var(--c-eq)">What mamas are saying</div>
+      <div class="posts">
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-eq)">H</div><div><div class="post-user">@hannah_bigfeels</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">"Too sensitive" has haunted me for years. This reframed her as emotionally gifted and I will never see her the same way. Thank you.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-eq)">C</div><div><div class="post-user">@caro.mumof2</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">We built the calm down corner on a Sunday. He took HIMSELF there mid-tantrum on Tuesday. I had to leave the room to cry happy tears.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-eq)">F</div><div><div class="post-user">@fiona.raising3</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">The feelings dictionary gave him WORDS. "I'm frustrated not angry mum." He's FOUR. I cannot.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUIDE 6 — POSTPARTUM RECOVERY
+     ============================================================ -->
+<section class="guide" id="postpartum" style="--ac:var(--c-postpartum)">
+  <div class="wrap">
+    <div class="guide-head reveal">
+      <span class="guide-badge" style="background:var(--ac)"><span>💚</span> Postpartum Recovery</span>
+      <span class="guide-price-tag" style="color:var(--ac)">$47</span>
+    </div>
+
+    <p class="story reveal" style="border-color:var(--ac)">Maybe you cried in the shower and didn't know why. Maybe you looked at your baby and felt nothing, and then felt horrified by the nothing. You're functioning. You're showing up. And underneath it all something feels deeply, quietly wrong. You're not broken. But you need more than 'this is just part of it.'</p>
+
+    <div class="img-row reveal">
+      <div class="img-tile" style="--ac:var(--c-postpartum)"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=701&h=525&fit=crop&q=75" alt="Mother in a quiet, reflective moment" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-postpartum)"><img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?w=701&h=525&fit=crop&q=75" alt="Reaching out and holding hands for support" loading="lazy"></div>
+      <div class="img-tile" style="--ac:var(--c-postpartum)"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=701&h=525&fit=crop&q=75" alt="Parents bonding with their newborn" loading="lazy"></div>
+    </div>
+
+    <div class="guide-grid">
+      <div class="inside-card reveal">
+        <h3>"Getting Through the Dark" — A Mom's Practical Guide to Postpartum Recovery</h3>
+        <p class="tagline">From "I don't recognise myself" to "I'm coming back." Honest. Practical. Science-backed.</p>
+        <ul class="inside-list" style="--ac:var(--c-postpartum)">
+          <li>Understand the hormone crash that causes PPD — explained so you stop blaming yourself</li>
+          <li>Take an honest self-assessment based on the Edinburgh Postnatal Depression Scale</li>
+          <li>Name the feelings nobody talks about: rage, bonding difficulty, intrusive thoughts</li>
+          <li>Rebuild the physical foundation: sleep, nutrition, movement, sunlight</li>
+          <li>Use nervous-system regulation tools that work in the actual moment</li>
+          <li>Tell your partner and ask for help without feeling like a burden</li>
+          <li>Decode every therapy type — CBT, EMDR, IPT — and how medication actually works</li>
+          <li>Follow a 6-week recovery roadmap with daily actions, plus a personal crisis plan and full helpline directory</li>
+        </ul>
+        <div class="meta-row">
+          <span class="chip">6-week roadmap · crisis plan included</span>
+          <span class="chip">📞 Full resource &amp; helpline directory</span>
+        </div>
+      </div>
+
+      <div class="buy-card reveal">
+        <div class="buy-price" style="color:var(--c-postpartum)">$47</div>
+        <p class="buy-sub">Instant PDF download · Yours to keep forever · 7-day money-back guarantee</p>
+        <button class="btn btn-block btn-lg" style="background:var(--c-postpartum);color:#fff"
+          onclick="startBuy('Postpartum Recovery','postpartum',47)">Get the Postpartum Recovery Guide — $47</button>
+        <p class="guarantee">🛡 Love it or your money back, no questions for 7 days</p>
+      </div>
+    </div>
+
+    <div class="social reveal">
+      <div class="social-head" style="color:var(--c-postpartum)">What mamas are saying</div>
+      <div class="posts">
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-postpartum)">G</div><div><div class="post-user">@grace_after_dark</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">The intrusive thoughts chapter. I had never said those thoughts out loud to anyone. Reading "this is common and you're not dangerous" — I sobbed.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-postpartum)">E</div><div><div class="post-user">@em.slowlyhealing</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">I used the partner script to finally tell my husband. He cried. We booked the GP the next day. This guide got me help I couldn't ask for alone.</p></div>
+        <div class="post"><div class="post-top"><div class="avatar" style="background:var(--c-postpartum)">V</div><div><div class="post-user">@vee_mamabear</div><div class="stars">⭐⭐⭐⭐⭐</div></div></div><p class="post-text">Having the therapy types explained plainly meant I walked in knowing what to ask for. The 6 week roadmap gave me something to hold onto daily.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUNDLE
+     ============================================================ -->
+<section class="bundle" id="bundle">
+  <style>
+    .bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin:2.6rem auto 0;max-width:1040px;text-align:left;}
+    .b-card{background:var(--cream);border:1px solid rgba(61,53,50,.12);border-radius:18px;box-shadow:var(--shadow);padding:1.8rem;display:flex;flex-direction:column;position:relative;}
+    .b-card.feat{border:2px solid var(--gold);box-shadow:var(--shadow-lg);}
+    .b-card.feat::before{content:"BEST VALUE";position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.12em;padding:.35rem 1rem;border-radius:999px;white-space:nowrap;}
+    .b-emojis{font-size:1.5rem;letter-spacing:.18rem;margin-bottom:.5rem;}
+    .b-card h3{font-size:1.28rem;margin:0 0 .25rem;}
+    .b-tag{font-style:italic;color:#6c605b;font-size:.9rem;margin:0 0 1rem;}
+    .b-list{list-style:none;padding:0;margin:0 0 1.1rem;flex:1;}
+    .b-list li{padding:.34rem 0;border-bottom:1px dashed rgba(61,53,50,.12);font-size:.93rem;}
+    .b-list li:last-child{border-bottom:none;}
+    .b-price{display:flex;align-items:baseline;gap:.6rem;}
+    .b-old{color:#a89c95;text-decoration:line-through;font-size:1.1rem;}
+    .b-new{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;}
+    .b-save{display:inline-block;background:rgba(90,122,90,.12);color:var(--c-identity);font-weight:600;font-size:.8rem;padding:.25rem .7rem;border-radius:999px;margin:.5rem 0 1.1rem;}
+    @media(max-width:880px){.bundle-grid{grid-template-columns:1fr;max-width:460px;}}
+  </style>
+  <div class="wrap center">
+    <p class="eyebrow reveal" style="color:var(--gold)">Bundle &amp; Save</p>
+    <h2 class="reveal">Buy More, Save More</h2>
+    <p class="muted reveal" style="max-width:54ch;margin:.4rem auto 0">Choose the bundle for your season — or take the whole library and save the most.</p>
+    <div class="bundle-grid">
+
+      <div class="b-card reveal">
+        <div class="b-emojis">🌙 🪞 💚</div>
+        <h3>The Fourth Trimester Bundle</h3>
+        <p class="b-tag">For the newborn fog — baby and you.</p>
+        <ul class="b-list">
+          <li>🌙 The 7-Day Gentle Sleep Reset</li>
+          <li>🪞 The 30-Day Identity Reset</li>
+          <li>💚 Getting Through the Dark</li>
+        </ul>
+        <div class="b-price"><span class="b-old">$101</span><span class="b-new" style="color:var(--c-sleep)">$79</span></div>
+        <div class="b-save">Save $22</div>
+        <button class="btn btn-block" style="background:var(--c-sleep);color:#fff" onclick="startBuy('The Fourth Trimester Bundle','fourthtrimester',79)">Get this bundle — $79</button>
+      </div>
+
+      <div class="b-card reveal">
+        <div class="b-emojis">🧸 📵 🌈</div>
+        <h3>The Gentle Parenting Bundle</h3>
+        <p class="b-tag">Boundaries, big feelings &amp; screens — ages 2-10.</p>
+        <ul class="b-list">
+          <li>🧸 Gentle Boundary Scripts</li>
+          <li>📵 The No-Fight Digital Detox Plan</li>
+          <li>🌈 The Emotional Intelligence Toolkit</li>
+        </ul>
+        <div class="b-price"><span class="b-old">$121</span><span class="b-new" style="color:var(--c-eq)">$89</span></div>
+        <div class="b-save">Save $32</div>
+        <button class="btn btn-block" style="background:var(--c-eq);color:#fff" onclick="startBuy('The Gentle Parenting Bundle','gentleparenting',89)">Get this bundle — $89</button>
+      </div>
+
+      <div class="b-card feat reveal">
+        <div class="b-emojis">🌙🪞🧸📵🌈💚</div>
+        <h3>The Complete Grounded Mama Library</h3>
+        <p class="b-tag">All 6 guides &amp; every printable — newborn to age ten.</p>
+        <ul class="b-list">
+          <li>All 6 complete guides (PDF)</li>
+          <li>Every printable, tracker &amp; roadmap</li>
+          <li>Crisis plan + full helpline directory</li>
+          <li>Every future update, free</li>
+        </ul>
+        <div class="b-price"><span class="b-old">$222</span><span class="b-new" style="color:var(--c-identity)">$147</span></div>
+        <div class="b-save" style="background:rgba(212,184,150,.28);color:#937535">Save $75 · best value</div>
+        <button class="btn btn-sage btn-block" onclick="startBuy('The Complete Library','complete',147)">Get the complete library — $147</button>
+      </div>
+
+    </div>
+    <p class="guarantee reveal" style="justify-content:center;margin-top:1.6rem">🛡 Instant PDF downloads · Yours forever · 7-day money-back guarantee</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEAD MAGNETS / EMAIL CAPTURE
+     ============================================================ -->
+<section class="leads" id="freebies">
+  <div class="wrap center">
+    <p class="eyebrow reveal" style="color:var(--c-sleep)">Free Resources</p>
+    <h2 class="reveal">Not ready to buy? Start here — it's free.</h2>
+    <p class="muted reveal" style="max-width:50ch;margin:.4rem auto 0;">No spam, no shame. Just a small, genuinely useful tool delivered straight to your inbox.</p>
+
+    <div class="lead-grid">
+      <!-- LEAD MAGNET 1 -->
+      <div class="lead-card reveal">
+        <div class="lead-icon">🌙</div>
+        <h4>The 3-Step Transfer Technique</h4>
+        <p>The exact gentle method to put your sleeping baby down without waking them.</p>
+        <form class="lead-form" onsubmit="submitLead(event,'sleep-transfer')">
+          <input type="email" placeholder="Your email" required aria-label="Your email" />
+          <button class="btn btn-block" style="background:var(--c-sleep);color:#fff" type="submit">Send it to me free</button>
+        </form>
+        <p class="lead-thanks">Check your inbox! Your free guide is on its way 💚</p>
+      </div>
+
+      <!-- LEAD MAGNET 2 -->
+      <div class="lead-card reveal">
+        <div class="lead-icon">💚</div>
+        <h4>The Postpartum Self-Checklist</h4>
+        <p>A 2-minute daily check-in to help you notice how you're really doing.</p>
+        <form class="lead-form" onsubmit="submitLead(event,'postpartum-checklist')">
+          <input type="email" placeholder="Your email" required aria-label="Your email" />
+          <button class="btn btn-block" style="background:var(--c-postpartum);color:#fff" type="submit">Send it to me free</button>
+        </form>
+        <p class="lead-thanks">Check your inbox! Your free guide is on its way 💚</p>
+      </div>
+
+      <!-- LEAD MAGNET 3 -->
+      <div class="lead-card reveal">
+        <div class="lead-icon">🧸</div>
+        <h4>5 Emergency Scripts for Public Meltdowns</h4>
+        <p>Word-for-word scripts for the grocery store, playground, and restaurant.</p>
+        <form class="lead-form" onsubmit="submitLead(event,'toddler-scripts')">
+          <input type="email" placeholder="Your email" required aria-label="Your email" />
+          <button class="btn btn-block" style="background:var(--c-toddler);color:#fff" type="submit">Send it to me free</button>
+        </form>
+        <p class="lead-thanks">Check your inbox! Your free guide is on its way 💚</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="eyebrow center reveal" style="color:var(--c-identity)">Who wrote these guides?</p>
+    <div class="about-card reveal">
+      <!-- ABOUT PHOTO: drop a real circular headshot in the avatar below (img src). -->
+      <div class="avatar-lg">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=300&fit=crop&q=80" alt="The Grounded Mama — author portrait" loading="lazy"
+             onerror="this.style.display='none';this.parentNode.innerHTML='👩🏻';" />
+      </div>
+      <div>
+        <p style="font-size:1.06rem">I'm a certified postpartum and child development professional — and a mother of three who has cried in a supermarket, sat frozen on the floor during a toddler meltdown, and spent entire nights too afraid to breathe in case I woke the baby.</p>
+        <p style="margin-bottom:0">These guides are the intersection of everything I know professionally and everything I've lived personally. They exist because every mother deserves access to the right tools — not just the ones who can afford a consultant at £150 an hour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
+<!-- ============ FAQ (AEO / answer-engine optimised) ============ -->
+<section class="leads" id="faq" style="background:linear-gradient(160deg,#F6EDE9,var(--cream))">
+  <div class="wrap center">
+    <p class="eyebrow reveal" style="color:var(--c-eq)">Questions, answered</p>
+    <h2 class="reveal">The things every tired mama asks</h2>
+    <div style="max-width:760px;margin:2.2rem auto 0;text-align:left">
+      <details class="reveal" style="background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;margin-bottom:.9rem">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;cursor:pointer;color:var(--charcoal)">Why does my newborn only sleep when held?</summary>
+        <p class="muted" style="margin:.8rem 0 0;font-size:.97rem">It's biology, not a bad habit. Newborns are neurologically immature and can't yet regulate their own temperature, heart rate, or stress hormones — being held does it for them. Contact napping is developmentally normal. The goal isn't to stop holding your baby, but to gently teach their nervous system it's safe to be put down.</p>
+      </details>
+      <details class="reveal" style="background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;margin-bottom:.9rem">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;cursor:pointer;color:var(--charcoal)">What is matrescence?</summary>
+        <p class="muted" style="margin:.8rem 0 0;font-size:.97rem">Matrescence is the developmental transition of becoming a mother — a profound neurological, hormonal, and identity shift comparable in scale to adolescence. Research shows the maternal brain physically rewires and these changes persist for at least two years. Feeling like you've lost yourself isn't failure; it's a recognised, normal part of this transition.</p>
+      </details>
+      <details class="reveal" style="background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;margin-bottom:.9rem">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;cursor:pointer;color:var(--charcoal)">How do I respond to a toddler meltdown without yelling?</summary>
+        <p class="muted" style="margin:.8rem 0 0;font-size:.97rem">During a meltdown a toddler's thinking brain goes offline, so reasoning doesn't work. Use a four-part script: acknowledge the feeling, hold the boundary calmly, offer a small choice, then follow through warmly. Connect before you correct — a child who feels understood can settle; a child who feels judged escalates.</p>
+      </details>
+      <details class="reveal" style="background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;margin-bottom:.9rem">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;cursor:pointer;color:var(--charcoal)">Does a screen-time detox have to be cold turkey?</summary>
+        <p class="muted" style="margin:.8rem 0 0;font-size:.97rem">No — and cold turkey usually backfires. Abruptly removing a dopamine trigger causes a real withdrawal-style meltdown. A gradual, four-week reduction lets the brain readjust, builds your child's buy-in, and gives you time to make real life more interesting. Consistency, not strictness, is what makes it stick.</p>
+      </details>
+      <details class="reveal" style="background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;margin-bottom:.9rem">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;cursor:pointer;color:var(--charcoal)">How do I help a child with big emotions?</summary>
+        <p class="muted" style="margin:.8rem 0 0;font-size:.97rem">Name the feeling before fixing the behaviour — affect labelling measurably lowers a feeling's intensity in the brain. Give them precise emotion words, build a calm-down corner (a self-soothing space, not a punishment), and model regulating your own feelings. Big feelings aren't a defect; the missing skill is regulation, and it's teachable.</p>
+      </details>
+      <details class="reveal" style="background:#fff;border:1px solid rgba(61,53,50,.1);border-radius:12px;box-shadow:var(--shadow-sm);padding:1.1rem 1.3rem;margin-bottom:.9rem">
+        <summary style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:600;cursor:pointer;color:var(--charcoal)">How do I know if I have postpartum depression or baby blues?</summary>
+        <p class="muted" style="margin:.8rem 0 0;font-size:.97rem">Baby blues affect up to 80% of mothers, start 2-3 days after birth, and lift within two weeks. Postpartum depression affects about 1 in 5, can begin any time in the first year, and doesn't resolve on its own — but it responds well to treatment. Persistent sadness, numbness, or rage beyond two weeks warrants a check-in.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">The Grounded Mama</div>
+    <div class="foot-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+      <a href="https://www.threads.net/@hermomreset" target="_blank" rel="noopener">Threads @hermomreset</a>
+    </div>
+    <p class="foot-fine">© 2025 The Grounded Mama. All guides for personal use only.</p>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <button class="btn btn-primary btn-block" onclick="document.getElementById('guides').scrollIntoView({behavior:'smooth'})">Find My Guide</button>
+</div>
+
+<!-- ============================================================
+     MODAL: EMAIL CAPTURE (Hero "Get a Free Guide First")
+     ============================================================ -->
+<div class="modal-overlay" id="emailModal" onclick="if(event.target===this)closeModal('emailModal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('emailModal')" aria-label="Close">&times;</button>
+    <p class="eyebrow" style="color:var(--c-sleep)">Free to start</p>
+    <h3>Start with a free guide 💚</h3>
+    <p class="muted">Tell us where to send it. Our most-loved freebie is the <strong>3-Step Transfer Technique</strong> — the gentle way to put a sleeping baby down without waking them.</p>
+    <form class="lead-form" onsubmit="submitLead(event,'hero-modal')">
+      <input type="email" placeholder="Your email address" required aria-label="Your email" />
+      <button class="btn btn-primary btn-block" type="submit">Send my free guide</button>
+    </form>
+    <p class="lead-thanks">Check your inbox! Your free guide is on its way 💚</p>
+    <p class="muted" style="font-size:.8rem;margin-top:1rem;margin-bottom:0">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL: UPSELL (shown before single-guide checkout)
+     ============================================================ -->
+<div class="modal-overlay" id="upsellModal" onclick="if(event.target===this)closeModal('upsellModal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('upsellModal')" aria-label="Close">&times;</button>
+    <p class="eyebrow" style="color:var(--gold)">Wait — one thing first</p>
+    <h3 id="upsellTitle">Before you go…</h3>
+    <p id="upsellLine">Add the complete bundle for just <strong>$110 more</strong> and get all 6 guides.</p>
+    <div class="upsell-extra">
+      <strong>You'd also unlock:</strong>
+      <ul id="upsellExtra"></ul>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-sage btn-block btn-lg" id="upsellUpgrade">Yes, upgrade me to the bundle</button>
+      <button class="btn btn-ghost btn-block" id="upsellDecline">No thanks, just this guide</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   IMAGE FALLBACK HANDLER
+   ------------------------------------------------------------
+   Images now use curated, verified https://images.unsplash.com
+   photo URLs hard-coded directly on each <img src> (the old
+   source.unsplash.com endpoint was retired by Unsplash and
+   returns HTTP 503, which is why nothing showed).
+   To swap an image: replace its src with another
+   https://images.unsplash.com/photo-XXXX?w=700&h=525&fit=crop
+   URL, or wire the official Unsplash API with your access key.
+   This handler only provides a soft gradient fallback so the
+   layout never breaks if a single photo fails to load.
+   ============================================================ */
+(function imageFallbacks(){
+  const FALLBACK_TINT = ['#E7C9C3','#C8D8C0','#E2C9B8','#BCD8D6','#D2C7DD','#D9C3AE'];
+  document.querySelectorAll('.img-tile img').forEach((img,i)=>{
+    img.addEventListener('error',function(){
+      const t = FALLBACK_TINT[i % FALLBACK_TINT.length];
+      img.outerHTML = '<div style="width:100%;height:100%;background:linear-gradient(160deg,'+t+',#FAF6F0);"></div>';
+    },{once:true});
+  });
+})();
+
+/* ============================================================
+   SCROLL FADE-IN (IntersectionObserver)
+   ============================================================ */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+
+/* ============================================================
+   PILL NAV — smooth scroll + active highlight
+   ============================================================ */
+const pills = Array.from(document.querySelectorAll('.pill'));
+pills.forEach(p=>{
+  p.addEventListener('click',()=>{
+    const sec = document.getElementById(p.dataset.target);
+    if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+function setActivePill(id){
+  pills.forEach(p=>{
+    const on = p.dataset.target===id;
+    p.classList.toggle('active',on);
+    p.style.background = on ? getComputedStyle(p).getPropertyValue('--ac') : '#fff';
+  });
+}
+// Scroll-spy: highlight the pill for the section currently in view.
+(function(){
+  const sections = ['sleep','identity','toddler','screens','eq','postpartum'].map(id=>document.getElementById(id));
+  const spy = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) setActivePill(e.target.id); });
+  },{threshold:.35, rootMargin:'-20% 0px -50% 0px'});
+  sections.forEach(s=>s&&spy.observe(s));
+})();
+
+/* ============================================================
+   MODAL HELPERS
+   ============================================================ */
+function openEmailModal(){ openModal('emailModal'); }
+function openModal(id){ document.getElementById(id).classList.add('show'); document.body.style.overflow='hidden'; }
+function closeModal(id){ document.getElementById(id).classList.remove('show'); document.body.style.overflow=''; }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') document.querySelectorAll('.modal-overlay.show').forEach(m=>closeModal(m.id)); });
+
+/* ============================================================
+   LEAD CAPTURE
+   ------------------------------------------------------------
+   EMAIL MARKETING CONNECTION:
+   Replace the localStorage/console block below with a POST to
+   your Mailchimp / ConvertKit / Kit endpoint, e.g.:
+     fetch('https://YOUR-ENDPOINT', {method:'POST', body: JSON.stringify({email, source})})
+   ============================================================ */
+function submitLead(ev, source){
+  ev.preventDefault();
+  const form = ev.target;
+  const email = form.querySelector('input[type=email]').value.trim();
+  if(!email) return;
+
+  // --- Store locally + log (DEV). Swap for your ESP endpoint in PROD. ---
+  const leads = JSON.parse(localStorage.getItem('gm_leads')||'[]');
+  leads.push({email, source, ts:new Date().toISOString()});
+  localStorage.setItem('gm_leads', JSON.stringify(leads));
+  console.log('[Grounded Mama] Lead captured →', {email, source});
+  console.log('[Grounded Mama] All stored leads:', leads);
+  // ---------------------------------------------------------------------
+
+  // Thank-you state
+  form.style.display='none';
+  const thanks = form.parentNode.querySelector('.lead-thanks');
+  if(thanks) thanks.classList.add('show');
+}
+
+/* ============================================================
+   BUY FLOW + UPSELL LOGIC
+   ============================================================ */
+const LINKS = {
+  sleep:'https://thegroundedmama.gumroad.com/l/rvajzd',
+  identity:'https://thegroundedmama.gumroad.com/l/hpovjii',
+  toddler:'https://thegroundedmama.gumroad.com/l/jjorif',
+  screens:'https://thegroundedmama.gumroad.com/l/tdmrb',
+  postpartum:'https://thegroundedmama.gumroad.com/l/tgndlv',
+  eq:'https://thegroundedmama.gumroad.com/l/xbshe',
+  fourthtrimester:'https://thegroundedmama.gumroad.com/l/mhytk',
+  gentleparenting:'https://thegroundedmama.gumroad.com/l/lmjnz',
+  complete:'https://thegroundedmama.gumroad.com/l/gvxxty'
+};
+const BUNDLE_KEYS = new Set(['fourthtrimester','gentleparenting','complete']);
+const GUIDES = {
+  sleep:      {name:'Sleep Reset',         label:'🌙 Sleep Reset',         bundle:'fourthtrimester'},
+  identity:   {name:'Identity Reset',      label:'🪞 Identity Reset',      bundle:'fourthtrimester'},
+  postpartum: {name:'Postpartum Recovery', label:'💚 Postpartum Recovery', bundle:'fourthtrimester'},
+  toddler:    {name:'Toddler Discipline',  label:'🧸 Toddler Discipline',  bundle:'gentleparenting'},
+  screens:    {name:'Screen Detox',        label:'📵 Screen Detox',        bundle:'gentleparenting'},
+  eq:         {name:'EQ Toolkit',          label:'🌈 EQ Toolkit',          bundle:'gentleparenting'}
+};
+const BUNDLES = {
+  fourthtrimester:{name:'Fourth Trimester Bundle', price:79, value:101, members:['sleep','identity','postpartum']},
+  gentleparenting:{name:'Gentle Parenting Bundle', price:89, value:121, members:['toddler','screens','eq']}
+};
+
+function startBuy(name, key, price){
+  // Bundles go straight to their Gumroad checkout.
+  if(BUNDLE_KEYS.has(key)){ goCheckout(key); return; }
+
+  // Single guide: offer the RELEVANT bundle before checkout.
+  const bkey = GUIDES[key].bundle, b = BUNDLES[bkey];
+  const addPrice = b.price - price;
+  document.getElementById('upsellTitle').textContent = 'Before you go — get the '+b.name+' for $'+addPrice+' more';
+  document.getElementById('upsellLine').innerHTML =
+    'You\'re about to get the <strong>'+name+'</strong>. Add the other guides for just <strong>$'+addPrice+' more</strong> and get the whole '+b.name+' (a $'+b.value+' value for $'+b.price+').';
+  document.getElementById('upsellExtra').innerHTML =
+    b.members.filter(k=>k!==key).map(k=>'<li>'+GUIDES[k].label+'</li>').join('') +
+    '<li>Every printable &amp; tracker included</li>';
+  const decline = document.getElementById('upsellDecline');
+  decline.textContent = 'No thanks, just the '+name;
+  decline.onclick = ()=>{ closeModal('upsellModal'); goCheckout(key); };
+  const upgrade = document.getElementById('upsellUpgrade');
+  upgrade.textContent = 'Yes, add the '+b.name;
+  upgrade.onclick = ()=>{ goCheckout(bkey); };
+  openModal('upsellModal');
+}
+
+/* ============================================================
+   CHECKOUT — opens the product's Gumroad checkout in a new tab.
+   ============================================================ */
+function goCheckout(key){
+  closeModal('upsellModal');
+  const url = LINKS[key];
+  if(url){ window.open(url + '?wanted=true', '_blank', 'noopener'); }
+}
+</script>
+</body>
+</html>
