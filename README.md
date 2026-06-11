@@ -6,7 +6,7 @@ Warm, honest, science-backed maternal-wellness guides — and the sales landing 
 
 ```
 the-grounded-mama/
-├─ the-grounded-mama.html   # single-file sales landing page (vanilla HTML/CSS/JS)
+├─ index.html   # single-file sales landing page (vanilla HTML/CSS/JS)
 ├─ guides/                  # the 6 final guide PDFs (gitignored — products, not source)
 ├─ src/                     # build scripts
 │  ├─ guide6_content.py     #   EQ Toolkit manuscript (structured content)
@@ -36,12 +36,12 @@ Buy buttons on the landing page link to these via the `LINKS` map in the page's 
 
 ```bash
 python -m http.server 8000 --directory the-grounded-mama
-# then open http://localhost:8000/the-grounded-mama.html
+# then open http://localhost:8000/index.html
 ```
 
 ## Deploy
 
-It's a static site — host `the-grounded-mama.html` anywhere (Netlify, Vercel, Cloudflare Pages, GitHub Pages). Rename it to `index.html` to serve from the domain root.
+It's a static site — host `index.html` anywhere (Netlify, Vercel, Cloudflare Pages, GitHub Pages). It serves at the domain root automatically (named `index.html`).
 
 ## Notes
 
