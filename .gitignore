@@ -14,3 +14,11 @@ _render/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Video pipeline scratch (regenerable / large binaries)
+video/assets/
+video/out/
+*.mp4
+*.mov
+*.mp3
+*.wav

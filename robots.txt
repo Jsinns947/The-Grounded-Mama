@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Allow AI answer-engine crawlers (so you can be cited)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://thegroundedmama.com/sitemap.xml

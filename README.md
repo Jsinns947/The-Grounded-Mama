@@ -41,7 +41,15 @@ python -m http.server 8000 --directory the-grounded-mama
 
 ## Deploy
 
-It's a static site — host `index.html` anywhere (Netlify, Vercel, Cloudflare Pages, GitHub Pages). It serves at the domain root automatically (named `index.html`).
+Static site, no build step. **Cloudflare Pages** (recommended):
+
+1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** → pick `Jsinns947/The-Grounded-Mama`.
+2. Build settings → **Framework preset: None**, **Build command: blank**, **Build output directory: `/`**. Save & Deploy.
+3. Live at `https://<project>.pages.dev` in ~1 min; every `git push` auto-deploys.
+
+**Custom domain:** Pages project → Custom domains → add your domain, then find-replace `https://thegroundedmama.com` in `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt`.
+
+Cloudflare/SEO files included: `_headers`, `robots.txt`, `sitemap.xml`, `llms.txt`, `404.html`.
 
 ## Notes
 
